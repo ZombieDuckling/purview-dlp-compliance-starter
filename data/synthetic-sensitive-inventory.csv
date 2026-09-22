@@ -1,0 +1,6 @@
+location_id,workload,repository,owner_group,data_type,risk_rating,retention_label,review_frequency
+LOC-001,SharePoint,Finance Contracts,Finance Operations,Client contract,High,Finance Records,Monthly
+LOC-002,OneDrive,Executive Working Files,Executive Office,Passport number,High,Restricted Personal Data,Monthly
+LOC-003,Exchange,Tax Correspondence,Tax Advisory,Tax identifier,High,Tax Records,Monthly
+LOC-004,Teams,Project Delivery Channel,Client Delivery,Commercial proposal,Medium,Commercial Records,Quarterly
+LOC-005,SharePoint,Public Templates,Marketing,Public template,Low,Public,Annual

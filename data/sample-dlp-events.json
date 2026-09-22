@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "event_id": "DLP-1001",
+      "location_id": "LOC-001",
+      "workload": "SharePoint",
+      "sensitive_info_type": "Client contract",
+      "action": "block_external_share",
+      "severity": "high",
+      "status": "needs_owner_review"
+    },
+    {
+      "event_id": "DLP-1002",
+      "location_id": "LOC-002",
+      "workload": "OneDrive",
+      "sensitive_info_type": "Passport number",
+      "action": "notify_user_and_block",
+      "severity": "high",
+      "status": "contained"
+    },
+    {
+      "event_id": "DLP-1003",
+      "location_id": "LOC-003",
+      "workload": "Exchange",
+      "sensitive_info_type": "Tax identifier",
+      "action": "encrypt_and_notify",
+      "severity": "high",
+      "status": "needs_policy_tuning"
+    },
+    {
+      "event_id": "DLP-1004",
+      "location_id": "LOC-004",
+      "workload": "Teams",
+      "sensitive_info_type": "Commercial proposal",
+      "action": "audit_only",
+      "severity": "medium",
+      "status": "monitor"
+    },
+    {
+      "event_id": "DLP-1005",
+      "location_id": "LOC-005",
+      "workload": "SharePoint",
+      "sensitive_info_type": "Public template",
+      "action": "audit_only",
+      "severity": "low",
+      "status": "no_action"
+    }
+  ]
+}

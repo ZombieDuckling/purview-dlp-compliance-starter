@@ -1,0 +1,89 @@
+{
+  "policyName": "VAT IT Sample Data Protection Review",
+  "mode": "TestWithNotifications",
+  "description": "Sample policy package for reviewing DLP control coverage with synthetic data only.",
+  "workloads": [
+    "Exchange",
+    "SharePoint",
+    "OneDrive",
+    "Teams"
+  ],
+  "rules": [
+    {
+      "name": "Block external sharing of client contracts",
+      "sensitiveInfoTypes": [
+        "Client contract"
+      ],
+      "locations": [
+        "SharePoint"
+      ],
+      "condition": "external_recipient_or_guest_link",
+      "actions": [
+        "block_external_share",
+        "notify_owner",
+        "create_incident_record"
+      ],
+      "severity": "high"
+    },
+    {
+      "name": "Protect passport and travel identity data",
+      "sensitiveInfoTypes": [
+        "Passport number"
+      ],
+      "locations": [
+        "OneDrive",
+        "Exchange"
+      ],
+      "condition": "content_shared_outside_org",
+      "actions": [
+        "notify_user",
+        "block_share",
+        "require_business_justification"
+      ],
+      "severity": "high"
+    },
+    {
+      "name": "Review tax identifier movement",
+      "sensitiveInfoTypes": [
+        "Tax identifier"
+      ],
+      "locations": [
+        "Exchange",
+        "SharePoint"
+      ],
+      "condition": "message_or_file_sent_external",
+      "actions": [
+        "encrypt",
+        "notify_compliance",
+        "audit_event"
+      ],
+      "severity": "high"
+    },
+    {
+      "name": "Monitor commercial proposal sharing",
+      "sensitiveInfoTypes": [
+        "Commercial proposal"
+      ],
+      "locations": [
+        "Teams",
+        "SharePoint"
+      ],
+      "condition": "external_collaboration",
+      "actions": [
+        "audit_event",
+        "notify_owner"
+      ],
+      "severity": "medium"
+    }
+  ],
+  "evidenceRequirements": [
+    "rule_owner",
+    "business_justification",
+    "incident_record",
+    "monthly_review_note"
+  ],
+  "placeholders": {
+    "tenantId": "00000000-0000-0000-0000-000000000000",
+    "reviewOwner": "security-review@example.invalid"
+  }
+}
