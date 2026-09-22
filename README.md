@@ -48,6 +48,7 @@ A generated report is included at `sample-output/dlp-compliance-report.md`. It s
 - monitored data locations,
 - synthetic event totals,
 - high-risk repositories,
+- owner context for events needing follow-up,
 - policy readiness checks,
 - recommended next actions.
 

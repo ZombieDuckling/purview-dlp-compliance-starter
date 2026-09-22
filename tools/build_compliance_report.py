@@ -22,6 +22,7 @@ def build_report(inventory, events):
     event_severity = Counter(event['severity'] for event in events)
     action_counts = Counter(event['action'] for event in events)
     high_locations = [row for row in inventory if row['risk_rating'].lower() == 'high']
+    inventory_by_location = {row['location_id']: row for row in inventory}
     unresolved = [event for event in events if event['status'] in {'needs_owner_review', 'needs_policy_tuning'}]
 
     lines = []
@@ -60,7 +61,13 @@ def build_report(inventory, events):
     lines.append('')
     if unresolved:
         for event in unresolved:
-            lines.append(f"- {event['event_id']}: {event['status']} for {event['sensitive_info_type']} in {event['workload']}")
+            location = inventory_by_location.get(event['location_id'], {})
+            owner = location.get('owner_group', 'Unassigned owner')
+            repository = location.get('repository', 'Unknown repository')
+            lines.append(
+                f"- {event['event_id']}: {event['status']} for {event['sensitive_info_type']} "
+                f"in {event['workload']} ({repository}; owner: {owner})"
+            )
     else:
         lines.append('- No unresolved synthetic events.')
     lines.append('')
