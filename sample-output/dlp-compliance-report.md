@@ -36,8 +36,8 @@ Generated from synthetic sample data. No tenant or client data is included.
 
 ## Follow-up queue
 
-- DLP-1001: needs_owner_review for Client contract in SharePoint
-- DLP-1003: needs_policy_tuning for Tax identifier in Exchange
+- DLP-1001: needs_owner_review for Client contract in SharePoint (Finance Contracts; owner: Finance Operations)
+- DLP-1003: needs_policy_tuning for Tax identifier in Exchange (Tax Correspondence; owner: Tax Advisory)
 
 ## Recommended next actions
 
